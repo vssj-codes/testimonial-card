@@ -1,6 +1,3 @@
-// src/components/TestimonialCard.jsx
-import React from "react";
-
 const TestimonialCard = ({
   name,
   username,
@@ -9,17 +6,18 @@ const TestimonialCard = ({
   altText,
 }) => {
   return (
-    <div className="w-[340px] flex flex-col gap-4 bg-white p-6 rounded-lg">
-      <div className="flex items-center gap-4 self-stretch">
-        <div className="w-12 h-12">
+    <article className="w-[340px] flex flex-col gap-4 bg-white p-6 rounded-lg shadow-md">
+      <div className="flex items-center gap-4">
+        <div className="w-12 h-12 flex-shrink-0">
           <img
-            src={profileImage || "https://via.placeholder.com/100"}
-            alt={altText || "Profile Image"}
+            src={profileImage}
+            alt={altText || "Profile image of the user"}
             className="w-12 h-12 object-cover"
+            loading="lazy"
           />
         </div>
-        <div className="flex flex-col gap-px grow">
-          <span className="font-semibold text-lg text-justify text-neutral-900 truncate max-w-full overflow-hidden">
+        <div className="flex flex-col gap-px max-w-[calc(100%-3rem)]">
+          <span className="font-semibold text-lg text-justify text-neutral-900 truncate">
             {name || "John Doe"}
           </span>
           <span className="font-normal text-sm text-neutral-600 truncate">
@@ -27,11 +25,10 @@ const TestimonialCard = ({
           </span>
         </div>
       </div>
-      {/* truncate */}
-      <span className="font-normal text-base text-neutral-600">
+      <span className="font-normal text-base text-neutral-600 max-w-full line-clamp-5 overflow-hidden">
         {testimonial || "This is a placeholder testimonial."}
       </span>
-    </div>
+    </article>
   );
 };
 
